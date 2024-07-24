@@ -3,12 +3,11 @@ import * as fs from 'fs';
 import * as vscode from 'vscode';
 
 const templatePath = path.join(__dirname, '../template.html');
-const template = fs.readFileSync(templatePath, 'utf8');
 
 export function activate(context: vscode.ExtensionContext) {
 
 	console.log('Congratulations, your extension "autocss" is now active!');
-	
+
 	const disposable = vscode.commands.registerCommand('autocss.generate', () => {
 		const panel = vscode.window.createWebviewPanel(
             'popup',
@@ -18,7 +17,13 @@ export function activate(context: vscode.ExtensionContext) {
                 enableScripts: true,
             }
         );
-        panel.webview.html = template;
+		fs.readFile(templatePath, 'utf8', (err, data) => {
+            if (err) {
+                vscode.window.showErrorMessage('Failed to load HTML template.');
+                return;
+            }
+            panel.webview.html = data;
+        });
 
     });
 	context.subscriptions.push(disposable);

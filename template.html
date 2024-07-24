@@ -31,17 +31,19 @@
             color: black;
             display: inline-block;
         }
+
         #previewText {
             color: white;
-            font-size: 16px; /* Default font size */
-            font-weight: normal; /* Default font weight */
-            font-style: normal; /* Default font style */
-            text-shadow: none; /* Default text shadow */
-            letter-spacing: 0px; /* Default letter spacing */
-            word-spacing: 0px; /* Default word spacing */
-            line-height: 1.2; /* Default line height */
-            text-decoration: none; /* Default text decoration */
+            font-size: 16px;
+            font-weight: normal;
+            font-style: normal;
+            text-shadow: none;
+            letter-spacing: 0px;
+            word-spacing: 0px;
+            line-height: 1.2;
+            text-decoration: none;
         }
+         
     </style>
 </head>
 <body>
@@ -52,7 +54,7 @@
         <label for="color">Text Color:</label>
         <input type="color" id="color" name="color" value="#ffffff"><br><br>
         <label for="size">Text Size:</label>
-        <input type="number" id="size" name="size"><br><br>
+        <input type="number" id="size" name="size" placeholder="Font size in px"><br><br>
         <label for="weight">Font Weight:</label>
         <select id="weight" name="weight">
             <option value="normal">Normal</option>
@@ -90,11 +92,11 @@
         <label for="shadowBlur">Shadow Blur Radius:</label>
         <input type="number" id="shadowBlur" name="shadowBlur" value=""><br><br>
         <label for="letterSpacing">Letter Spacing:</label>
-        <input type="number" id="letterSpacing" name="letterSpacing" step="0.1" value="0"><br><br>
+        <input type="number" id="letterSpacing" name="letterSpacing" step="0.1" value="0" placeholder="Letter spacing"><br><br>
         <label for="wordSpacing">Word Spacing:</label>
-        <input type="number" id="wordSpacing" name="wordSpacing" step="0.1" value="0"><br><br>
+        <input type="number" id="wordSpacing" name="wordSpacing" step="0.1" value="0" placeholder="Word spacing"><br><br>
         <label for="lineHeight">Line Height:</label>
-        <input type="number" id="lineHeight" name="lineHeight" step="0.1" value="1.2"><br><br>
+        <input type="number" id="lineHeight" name="lineHeight" step="0.1" value="1.2" placeholder="Line height"><br><br>
         <label for="textDecorationLine">Text Decoration Line:</label>
         <select id="textDecorationLine" name="textDecorationLine">
             <option value="none">None</option>
@@ -111,6 +113,9 @@
         </select><br><br>
         <label for="textDecorationColor">Text Decoration Color:</label>
         <input type="color" id="textDecorationColor" name="textDecorationColor" value="#ffffff"><br><br>
+        <div class="button-container">
+            <button type="button" id="resetButton">Reset</button>
+        </div>
     </form>
 
     <div id="preview">
@@ -195,22 +200,13 @@
             cssCodeDiv.textContent = cssCode;
         }
 
-        document.getElementById('text').addEventListener('input', updateDisplay);
-        document.getElementById('color').addEventListener('input', updateDisplay);
-        document.getElementById('size').addEventListener('input', updateDisplay);
-        document.getElementById('weight').addEventListener('change', updateDisplay);
-        document.getElementById('style').addEventListener('change', updateDisplay);
-        document.getElementById('fontFamily').addEventListener('change', updateDisplay);
-        document.getElementById('shadowColor').addEventListener('input', updateDisplay);
-        document.getElementById('shadowX').addEventListener('input', updateDisplay);
-        document.getElementById('shadowY').addEventListener('input', updateDisplay);
-        document.getElementById('shadowBlur').addEventListener('input', updateDisplay);
-        document.getElementById('letterSpacing').addEventListener('input', updateDisplay);
-        document.getElementById('wordSpacing').addEventListener('input', updateDisplay);
-        document.getElementById('lineHeight').addEventListener('input', updateDisplay);
-        document.getElementById('textDecorationLine').addEventListener('input', updateDisplay);
-        document.getElementById('textDecorationStyle').addEventListener('input', updateDisplay);
-        document.getElementById('textDecorationColor').addEventListener('input', updateDisplay);
+        document.getElementById('optionsForm').addEventListener('input', updateDisplay);
+
+        document.getElementById('resetButton').addEventListener('click', function() {
+            document.getElementById('optionsForm').reset();
+            updateDisplay();
+        });
+
     </script>
 </body>
 </html>
