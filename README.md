@@ -1,4 +1,4 @@
-# AutoCSS
+# CSSVision
 
 This VS Code extension allows users to input text styling options through HTML input fields and see a real-time preview of their styles, along with the suggested generated CSS code.
 
@@ -46,13 +46,13 @@ This VS Code extension allows users to input text styling options through HTML i
 
 This extension contributes the following commands:
 
-* `autocss.generate`: Opens the CSS preview form.
+* `cssvision.generate`: Opens the CSS preview form.
 
 ## Versions
 
-### 1.0.0
+### 0.0.1
 
-Initial release of AutoCSS
+Initial release of CSSVision
 
 ## Following extension guidelines
 

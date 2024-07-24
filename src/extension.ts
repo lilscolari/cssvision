@@ -6,12 +6,12 @@ const templatePath = path.join(__dirname, '../template.html');
 
 export function activate(context: vscode.ExtensionContext) {
 
-	console.log('Congratulations, your extension "autocss" is now active!');
+	console.log('Congratulations, your extension "cssvision" is now active!');
 
-	const disposable = vscode.commands.registerCommand('autocss.generate', () => {
+	const disposable = vscode.commands.registerCommand('cssvision.generate', () => {
 		const panel = vscode.window.createWebviewPanel(
             'popup',
-            'AutoCSS',
+            'CSSVision',
             vscode.ViewColumn.One,
             {
                 enableScripts: true,

@@ -1,7 +1,9 @@
 {
-  "name": "autocss",
-  "displayName": "AutoCSS",
-  "description": "",
+  "name": "cssvision",
+  "displayName": "CSSVision",
+  "publisher": "lilscolari",
+  "description": "Autogenerate CSS code based on user input.",
+  "license": "MIT",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.91.0"
@@ -14,7 +16,7 @@
   "contributes": {
     "commands": [
       {
-        "command": "autocss.generate",
+        "command": "cssvision.generate",
         "title": "Generate"
       }
     ]
@@ -29,6 +31,10 @@
     "pretest": "npm run compile-tests && npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
     "test": "vscode-test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lilscolari/cssvision.git"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.7",
