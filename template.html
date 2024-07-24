@@ -1,0 +1,216 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Popup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .form-section {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        #preview {
+            flex: 1;
+        }
+        #cssCode {
+            margin-top: 40px;
+            white-space: pre-wrap;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background-color: #f4f4f4;
+            font-family: monospace;
+            color: black;
+            display: inline-block;
+        }
+        #previewText {
+            color: white;
+            font-size: 16px; /* Default font size */
+            font-weight: normal; /* Default font weight */
+            font-style: normal; /* Default font style */
+            text-shadow: none; /* Default text shadow */
+            letter-spacing: 0px; /* Default letter spacing */
+            word-spacing: 0px; /* Default word spacing */
+            line-height: 1.2; /* Default line height */
+            text-decoration: none; /* Default text decoration */
+        }
+    </style>
+</head>
+<body>
+    <h1>Fill Out Options</h1>
+    <form id="optionsForm">
+        <label for="text">Preview Text:</label>
+        <input type="text" id="text" name="text" placeholder="Enter text here"><br><br>
+        <label for="color">Text Color:</label>
+        <input type="color" id="color" name="color" value="#ffffff"><br><br>
+        <label for="size">Text Size:</label>
+        <input type="number" id="size" name="size"><br><br>
+        <label for="weight">Font Weight:</label>
+        <select id="weight" name="weight">
+            <option value="normal">Normal</option>
+            <option value="bold">Bold</option>
+            <option value="bolder">Bolder</option>
+            <option value="lighter">Lighter</option>
+        </select><br><br>
+        <label for="style">Font Style:</label>
+        <select id="style" name="style">
+            <option value="normal">Normal</option>
+            <option value="italic">Italic</option>
+            <option value="oblique">Oblique</option>
+        </select><br><br>
+        <label for="fontFamily">Font Family:</label>
+        <select id="fontFamily" name="fontFamily">
+            <option value="Arial, sans-serif">Arial</option>
+                <option value="'Arial Black', sans-serif">Arial Black</option>
+                <option value="'Courier New', monospace">Courier New</option>
+                <option value="Georgia, serif">Georgia</option>
+                <option value="'Times New Roman', serif">Times New Roman</option>
+                <option value="Verdana, sans-serif">Verdana</option>
+                <option value="Tahoma, sans-serif">Tahoma</option>
+                <option value="'Trebuchet MS', sans-serif">Trebuchet MS</option>
+                <option value="'Impact', sans-serif">Impact</option>
+                <option value="'Comic Sans MS', cursive, sans-serif">Comic Sans MS</option>
+                <option value="Helvetica, sans-serif">Helvetica</option>
+        </select><br><br>
+        <label for="shadowColor">Shadow Color:</label>
+        <input type="color" id="shadowColor" name="shadowColor" value="#ffffff"><br><br>
+        <div>All 3 Shadow Properties Must Have Values:</div><br>
+        <label for="shadowX">Shadow X Offset:</label>
+        <input type="number" id="shadowX" name="shadowX" value=""><br><br>
+        <label for="shadowY">Shadow Y Offset:</label>
+        <input type="number" id="shadowY" name="shadowY" value=""><br><br>
+        <label for="shadowBlur">Shadow Blur Radius:</label>
+        <input type="number" id="shadowBlur" name="shadowBlur" value=""><br><br>
+        <label for="letterSpacing">Letter Spacing:</label>
+        <input type="number" id="letterSpacing" name="letterSpacing" step="0.1" value="0"><br><br>
+        <label for="wordSpacing">Word Spacing:</label>
+        <input type="number" id="wordSpacing" name="wordSpacing" step="0.1" value="0"><br><br>
+        <label for="lineHeight">Line Height:</label>
+        <input type="number" id="lineHeight" name="lineHeight" step="0.1" value="1.2"><br><br>
+        <label for="textDecorationLine">Text Decoration Line:</label>
+        <select id="textDecorationLine" name="textDecorationLine">
+            <option value="none">None</option>
+            <option value="underline">Underline</option>
+            <option value="overline">Overline</option>
+            <option value="line-through">Line-through</option>
+        </select><br><br>
+        <label for="textDecorationStyle">Text Decoration Style:</label>
+        <select id="textDecorationStyle" name="textDecorationStyle">
+            <option value="solid">Solid</option>
+            <option value="dotted">Dotted</option>
+            <option value="dashed">Dashed</option>
+            <option value="wavy">Wavy</option>
+        </select><br><br>
+        <label for="textDecorationColor">Text Decoration Color:</label>
+        <input type="color" id="textDecorationColor" name="textDecorationColor" value="#ffffff"><br><br>
+    </form>
+
+    <div id="preview">
+        <h2>Preview Text:</h2>
+        <p id="previewText">This is a preview of your styles.</p>
+    </div>
+
+    <div id="cssCode">/* Recommended CSS will be displayed here */</div>
+
+    <script>
+        function updateDisplay() {
+            const text = document.getElementById('text').value;
+            const color = document.getElementById('color').value;
+            const size = document.getElementById('size').value;
+            const weight = document.getElementById('weight').value;
+            const style = document.getElementById('style').value;
+            const fontFamily = document.getElementById('fontFamily').value;
+            const shadowColor = document.getElementById('shadowColor').value;
+            const shadowX = document.getElementById('shadowX').value;
+            const shadowY = document.getElementById('shadowY').value;
+            const shadowBlur = document.getElementById('shadowBlur').value;
+            const letterSpacing = document.getElementById('letterSpacing').value;
+            const wordSpacing = document.getElementById('wordSpacing').value;
+            const lineHeight = document.getElementById('lineHeight').value;
+            const textDecorationLine = document.getElementById('textDecorationLine').value;
+            const textDecorationStyle = document.getElementById('textDecorationStyle').value;
+            const textDecorationColor = document.getElementById('textDecorationColor').value;
+
+            const previewText = document.getElementById('previewText');
+            const cssCodeDiv = document.getElementById('cssCode');
+
+            previewText.textContent = text || 'This is a preview of your styles.';
+            previewText.style.color = color || '';
+            previewText.style.fontSize = size ? `${size}px` : '';
+            previewText.style.fontWeight = weight || '';
+            previewText.style.fontStyle = style || '';
+            previewText.style.fontFamily = fontFamily || '';
+            previewText.style.textShadow = shadowX && shadowY && shadowBlur ? `${shadowX}px ${shadowY}px ${shadowBlur}px ${shadowColor}` : 'none';
+            previewText.style.letterSpacing = letterSpacing ? `${letterSpacing}px` : 'normal';
+            previewText.style.wordSpacing = wordSpacing ? `${wordSpacing}px` : '';
+            previewText.style.lineHeight = lineHeight || '';
+            previewText.style.textDecoration = `${textDecorationLine} ${textDecorationStyle} ${textDecorationColor}`.trim();
+
+
+            let cssCode = `#previewText {\n`;
+            if (color) {
+                cssCode += `  color: ${color};\n`;
+            }
+            if (size) {
+                cssCode += `  font-size: ${size}px;\n`;
+            }
+            if (weight !== 'normal') {
+                cssCode += `  font-weight: ${weight};\n`;
+            }
+            if (style !== 'normal') {
+                cssCode += `  font-style: ${style};\n`;
+            }
+            if (fontFamily) {
+                cssCode += `  font-family: ${fontFamily};\n`;
+            }
+            if (shadowColor && shadowX && shadowY && shadowBlur) {
+                if (shadowColor === color) {
+                    cssCode += `  text-shadow: ${shadowX}px ${shadowY}px ${shadowBlur}px;\n`;
+                } else {
+                    cssCode += `  text-shadow: ${shadowX}px ${shadowY}px ${shadowBlur}px ${shadowColor};\n`;
+                }
+            }
+            if (letterSpacing !== '0') {
+                cssCode += `  letter-spacing: ${letterSpacing}px;\n`;
+            }
+            if (wordSpacing !== '0') {
+                cssCode += `  word-spacing: ${wordSpacing}px;\n`;
+            }
+            if (lineHeight !== '1.2') {
+                cssCode += `  line-height: ${lineHeight};\n`;
+            }
+            if (textDecorationLine !== 'none') {
+                cssCode += `  text-decoration: ${textDecorationLine} ${textDecorationStyle} ${textDecorationColor};\n`;
+            }
+            cssCode += `}\n`;
+
+            cssCodeDiv.textContent = cssCode;
+        }
+
+        document.getElementById('text').addEventListener('input', updateDisplay);
+        document.getElementById('color').addEventListener('input', updateDisplay);
+        document.getElementById('size').addEventListener('input', updateDisplay);
+        document.getElementById('weight').addEventListener('change', updateDisplay);
+        document.getElementById('style').addEventListener('change', updateDisplay);
+        document.getElementById('fontFamily').addEventListener('change', updateDisplay);
+        document.getElementById('shadowColor').addEventListener('input', updateDisplay);
+        document.getElementById('shadowX').addEventListener('input', updateDisplay);
+        document.getElementById('shadowY').addEventListener('input', updateDisplay);
+        document.getElementById('shadowBlur').addEventListener('input', updateDisplay);
+        document.getElementById('letterSpacing').addEventListener('input', updateDisplay);
+        document.getElementById('wordSpacing').addEventListener('input', updateDisplay);
+        document.getElementById('lineHeight').addEventListener('input', updateDisplay);
+        document.getElementById('textDecorationLine').addEventListener('input', updateDisplay);
+        document.getElementById('textDecorationStyle').addEventListener('input', updateDisplay);
+        document.getElementById('textDecorationColor').addEventListener('input', updateDisplay);
+    </script>
+</body>
+</html>
