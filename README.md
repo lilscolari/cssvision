@@ -42,6 +42,13 @@ This VS Code extension allows users to input text styling options through HTML i
     ```
 - **VS Code**: This extension requires Visual Studio Code version 1.91.0 or higher. You can download the latest version from [code.visualstudio.com](https://code.visualstudio.com/).
 
+## Usage
+
+- Install the extension by searching 'CSSVision' in the marketplace.
+- Run `Ctrl-Shift-P` (windows) or `Cmd-Shift-P` (mac)
+- Ensure your text input is `>Generate`
+- A new window should pop up.
+
 ## Extension Settings
 
 This extension contributes the following commands:
